@@ -1,19 +1,59 @@
 <?php
 
-$server = readline('Enter number of server');
-$server_load = readline('Enter the server load');
+$input_1 = readline("Enter the input");//enter number of breads vada and samosa
+$input_2 = readline("Enter the input");// enter price of vada and samosa
 
-$n = (int)$server;
-$array = array_map('intval', explode(' ', $server));
+$arrya_1 = explode(" ",$input_1);
+$arrya_2 = explode(" ",$input_2);
+$bread = (int)$arrya_1[0];
+$vada = (int)$arrya_1[1];
+$samosa = (int)$arrya_1[2];
 
-foreach ($array as $value){
-    if ($value<50) {
-        $n = $n/2;
-    }
-    else {
-        $n = 2*$n+1;
+$Vadapav = (int)$arrya_2[0];
+$Samosapav = (int)$arrya_2[1];
+
+$totalPrice = 0;
+
+if ($Samosapav > $Vadapav) {
+    
+    while($bread>=2){
+        if ($samosa==0 and $vada==0) {
+            echo("Maximum profit possible is Rs.".$totalPrice );
+            break;
+        }
+        if($samosa>0){
+            $totalPrice = $totalPrice + $Samosapav;
+            $samosa = $samosa-1;
+            $bread = $bread-2;
+        }
+        elseif ($vada>0) {
+            $totalPrice = $totalPrice + $Vadapav;
+            $vada = $vada-1;
+            $bread = $bread-2;
+        } 
+        
     }
     
 }
-echo("After 5 minutes,".$n."server is running");
+else {
+   while($bread>=2){
+        if ($samosa==0 and $vada==0) {
+            echo("Maximum profit possible is Rs.".$totalPrice );
+            break;
+        }
+        if($vada>0){
+            $totalPrice = $totalPrice + $Vadapav;
+            $vada = $vada-1;
+            $bread = $bread-2;
+        }
+        elseif ($samosa>0) {
+            $totalPrice = $totalPrice + $Samosapav;
+            $samosa = $samosa-1;
+            $bread = $bread-2;
+        } 
+        
+    } 
+}
+echo("Maximum profit possible is Rs.".$totalPrice );
+
 ?>
