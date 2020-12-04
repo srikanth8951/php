@@ -18,7 +18,6 @@ if ($Samosapav > $Vadapav) {
     
     while($bread>=2){
         if ($samosa==0 and $vada==0) {
-            echo("Maximum profit possible is Rs.".$totalPrice );
             break;
         }
         if($samosa>0){
@@ -38,7 +37,6 @@ if ($Samosapav > $Vadapav) {
 else {
    while($bread>=2){
         if ($samosa==0 and $vada==0) {
-            echo("Maximum profit possible is Rs.".$totalPrice );
             break;
         }
         if($vada>0){
